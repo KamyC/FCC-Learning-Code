@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DNA Pairing</title>
+	<script type="text/javascript">
+		var str="ATCGA"
+		var g={'G':'C'};
+		var a={'A':'T'};
+		var c={'C':'G'};
+		var t={'T':'A'};
+		var arr=[];
+		var strArr=str.split("");
+		for(var i=0;i<strArr.length;i++){
+			arr.push([str[i]]);
+		}
+		// console.log(arr[0]);
+		// console.log(arr[1]);
+		// console.log(arr[2]);
+		for(var i=0;i<arr.length;i++){
+			if(arr[i][0]==Object.keys(g)){
+				arr[i].push('C')				
+			}
+			else if(arr[i][0]==Object.keys(c)){
+				arr[i].push('G');
+			}
+			else if(arr[i][0]==Object.keys(a)){
+				arr[i].push('T');
+			}
+			else if(arr[i][0]==Object.keys(t)){
+				arr[i].push('A');
+			}
+		
+		}
+		console.log(arr[0]);
+		console.log(arr[1])
+		console.log(arr[2])
+			console.log(arr[3])
+				console.log(arr[4])
+		
+		// console.log(Object.keys(g))
+		// console.log(g[Object.keys(g)])
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

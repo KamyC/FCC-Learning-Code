@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pig Latin</title>
+	<script type="text/javascript">
+	var str="california";
+	var arr=["a",'e','i','o','u','sh','ch','sm','st','str','th','gl'];
+	var finalStr;
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==str.substr(0,1)){
+			finalStr=str+"way";
+			break;
+		}
+
+		else if(arr[i].length==3&&arr[i]==str.substr(0,3)){
+			finalStr=str.substr(3,str.length-3)+arr[i];
+			break;
+		}
+
+		else if(arr[i].length==2&&arr[i]==str.substr(0,2)){
+			finalStr=str.substr(2,str.length-2)+arr[i]+"ay";
+			break;
+		}
+		else if(arr[i]!=str.substr(0,1)){
+			finalStr=str.substr(1,str.length-1)+str.substr(0,1)+"ay"
+		}
+
+		}
+	
+	console.log(finalStr);
+
+
+
+
+
+
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

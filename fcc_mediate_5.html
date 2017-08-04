@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search and Replace</title>
+	<script type="text/javascript">
+	var str,before,after;
+	str="A quick brown fox Jumped over the lazy dog"
+	before="Jumped";
+	after="leaped";
+	var newStr=str.split(" ");
+	for (var i=0;i<newStr.length;i++){
+		if(newStr[i].toLowerCase()==before.toLowerCase()){
+			
+			if(/[A-Z]/.test(before[0])){
+				var capital=after[0].toUpperCase();
+				var newAfter=after.split("");
+				newAfter[0]=capital;
+				newStr.splice(i,1,newAfter.join(""));
+						}
+
+			else{
+				newStr.splice(i,1,after);
+			}
+			
+		}
+		}
+	
+
+
+
+	console.log(newStr.join(" "));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Roman Numeral Converter</title>
+	<script type="text/javascript">
+	function convert(num) {
+		var num=(""+num);
+		var arrNum=[];
+		for(i=0;i<num.length;i++){
+			arrNum=arrNum.concat(num[i]).map(function(x){
+				return parseInt(x);
+			});
+		}
+
+		var dig=[];
+		var a=arrNum[arrNum.length-1];
+		switch(a){
+			case 1:dig=dig.concat("I");break;
+			case 2:dig=dig.concat("II");break;
+			case 3:dig=dig.concat("III");break;
+			case 4:dig=dig.concat("IV");break;
+			case 5:dig=dig.concat("V");break;
+			case 6:dig=dig.concat("VI");break;
+			case 7:dig=dig.concat("VII");break;
+			case 8:dig=dig.concat("VIII");break;
+			case 9:dig=dig.concat("IX");break;
+		}
+		var ten=[];
+		var b=arrNum[arrNum.length-2];
+		switch(b){
+			case 1:ten=ten.concat("X");break;
+			case 2:ten=ten.concat("XX");break;
+			case 3:ten=ten.concat("XXX");break;
+			case 4:ten=ten.concat("XL");break;
+			case 5:ten=ten.concat("L");break;
+			case 6:ten=ten.concat("LX");break;
+			case 7:ten=ten.concat("LXX");break;
+			case 8:ten=ten.concat("LXXX");break;
+			case 9:ten=ten.concat("XC");break;
+		}
+		var hund=[];
+		var c=arrNum[arrNum.length-3];
+		switch(c){
+			case 1:hund=hund.concat("D");break;
+			case 2:hund=hund.concat("DD");break;
+			case 3:hund=hund.concat("DDD");break;
+			case 4:hund=hund.concat("CD");break;
+			case 5:hund=hund.concat("D");break;
+			case 6:hund=hund.concat("DC");break;
+			case 7:hund=hund.concat("DCC");break;
+			case 8:hund=hund.concat("DCCC");break;
+			case 9:hund=hund.concat("CM");break;
+		}	
+		var thou=[];
+		var d=arrNum[arrNum.length-4];
+		switch(d){
+			case 1:thou=thou.concat("M");break;
+			case 2:thou=thou.concat("MM");break;
+			case 3:thou=thou.concat("MMM");break;
+		}	
+		var final=thou.concat(hund,ten,dig);
+		return final.join("");
+
+}	
+	console.log(convert(3999));
+	
+	
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

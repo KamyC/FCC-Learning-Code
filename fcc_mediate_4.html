@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Where art thou</title>
+	<script type="text/javascript">
+	collection=[{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }];
+	source={ last: "Capulet" };
+	var arr=[];
+	var soKey=Object.keys(source);
+	for (var i=0;i<collection.length;i++){
+		n=0;
+		for (var j=0;j<soKey.length;j++){
+			if (collection[i].hasOwnProperty(soKey[j])&&collection[i][soKey[j]]==source[soKey[j]]){
+				n++;
+			}
+		}
+		if(n==soKey.length){
+			arr.push(collection[i]);
+		}
+
+	}
+	console.log(arr);
+	
+
+
+	
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
