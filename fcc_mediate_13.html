@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sum All Odd Fibonacci Numbers</title>
+	<script type="text/javascript">
+		function sumFibs(num) {
+			var arr=[1,1];
+			var a=b=1;
+			var result=0;
+			for(var i=0;i<num;i++){
+				fin=a+b;
+				if(fin<=num && fin%2!==0){
+					arr.push(fin);
+				}
+				a=b;
+				b=fin;
+			}
+
+  		for(var j=0;j<arr.length;j++){
+  			result+=arr[j];
+  		}
+
+  		return result;
+		}
+
+		console.log(sumFibs(1025))
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

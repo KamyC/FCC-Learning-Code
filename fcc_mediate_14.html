@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sum All Primes</title>
+	<script type="text/javascript">
+	function sumPrimes(num) {
+		var arr=[];
+		for(var i=2;i<=num;i++){
+			for(var j=2;j<=i;j++){
+				if(i%j==0){
+					break;
+				}
+			}
+			if(i==j){
+				arr.push(i);
+			}
+
+		}
+		// var result=0;
+  // 		for(var n=0;n<arr.length;n++){
+  // 			result+=arr[n];
+		// }
+		return arr;
+	}
+
+	console.log(sumPrimes(9))
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

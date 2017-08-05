@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Spinal Tap Case</title>
+	<script type="text/javascript">
+	function spinalCase(str) {
+	var _str
+	for(i=0;i<str.length;i++){
+		if(/\s/g.test(str[i])){
+			_str=str.replace(/\s/g,"-");
+			break;
+		}
+		else if(/\_/g.test(str[i])){
+			_str=str.replace(/\_/g,"-")
+			break;
+		}
+		else if(/[A-Z]/g.test(str[i])){
+			_str=str.replace(/[A-Z]/g,function(letter){
+				letter="-"+letter
+				return letter.toLowerCase();
+			});
+		}
+	}
+
+  	return _str.toLowerCase();
+	}
+	console.log(spinalCase("This Is Spinal Tap"))
+	console.log(spinalCase("The_Andy_Griffith_Show"))
+	console.log(spinalCase("thisIsSpinalTap"))
+	console.log(spinalCase("Teletubbies say Eh-oh"))
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

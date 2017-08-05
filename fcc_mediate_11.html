@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Convert HTML Entities</title>
+	<script type="text/javascript">
+	function convert(str) {
+		var a=/[']+/;
+		var b=/["]+/;
+		var c=/[\&]+/;
+		var d=/[\<]+/;
+		var e=/[\>]+/;
+		var _str
+		if(a.exec(str)){
+			_str=str.replace(/[']+/g,"&​apos;");
+		}
+		else if(b.exec(str)){
+			_str=str.replace(/["]+/g,"&​quot;");
+		}
+		else if(c.exec(str)){
+			_str=str.replace(/[\&]+/g,"&​amp;");
+		}
+		else if(d.exec(str)&&e.exec(str)){
+			_str=str.replace(/([\<\>]+)/g,"&​lt;&​gt;");
+		}
+		else if(d.exec(str)){
+			_str=str.replace(/[\<]+/g,"&​lt;")
+		}
+		else if(e.exec(str)){
+			_str=str.replace(/[\>]+/g,"&​gt;")
+		}
+
+		else{
+			_str=str;
+		}
+
+
+  		return _str
+
+	}
+	console.log(convert("Dolce & Gabbana"));
+	console.log(convert("Hamburgers < Pizza < Tacos"));
+	console.log(convert("Sixty > twelve"));
+	console.log(convert('Stuff in "quotation marks"'));
+	console.log(convert("Shindler's List"));
+	console.log(convert("<>"))
+	console.log(convert("abc"));
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

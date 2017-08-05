@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Missing letters</title>
+	<script type="text/javascript">
+	var str="abcd"
+	var arr=[];
+	for(var i=0;i<str.length;i++){
+		arr.push(str.charCodeAt(i))
+	};
+	var finalArr=[];
+	for (var j=0;j<arr.length;j++){
+		if(arr[j]+1!=arr[j+1]){
+			var num=arr[j]+1
+			finalArr.push(num);
+		}
+
+		}
+	
+	finalArr.pop();
+
+	if (!finalArr[0]){
+      console.log(undefined);
+    }
+  
+    else{
+      console.log(String.fromCharCode(finalArr[0]));
+    }
+ 
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
