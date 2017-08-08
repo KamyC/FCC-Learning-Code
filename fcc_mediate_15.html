@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Smallest Common Multiple</title>
+	<script type="text/javascript">
+	function smallestCommons(arr) {
+ //    arr.sort()
+ //    var maxMul=1;
+ //    for(var j=arr[0];j<=arr[1];j++){
+ //       maxMul=maxMul*j;
+ //    }  
+  		
+ //    var finArr=[];
+ //  	for(var i=1;i<=maxMul;i++){
+ //      var count=0;
+ //  		for(var j=arr[0];j<=arr[1];j++){
+
+ //  				if(i%j==0){
+ //  					count+=1;
+ //  				}
+ //          if(count==arr[1]){
+ //            finArr.push(i);
+ //          }
+       
+ //      }
+ //    }
+  		
+ //  		return finArr[0];
+	// }
+
+
+  var max = Math.max(arr[0], arr[1]);
+  var min = Math.min(arr[0], arr[1]);
+  var mltple = max;
+  var count=0
+  for(var i = max; i >= min; i--){
+
+    if(mltple % i !== 0){
+      
+      mltple += max; 
+      i = max;
+    
+    } 
+  }
+
+  return mltple;  
+}
+
+	console.log(smallestCommons([1,13]))
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
