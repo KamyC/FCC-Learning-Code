@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drop It</title>
+	<script type="text/javascript">
+		function drop(arr,func){
+			if (arr.length === 0 || func(arr[0])) {
+    			return arr;
+  			} 	
+  			else {
+    			arr.shift();
+    			return drop(arr, func);
+ 			}
+
+		}
+
+
+	console.log(drop([1, 2, 3, 4], function(n) {return n > 5;}))
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
