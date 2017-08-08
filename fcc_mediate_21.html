@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Arguments Optional</title>
+	<script type="text/javascript">
+		function add(){
+			var isNum=function(val){
+				return Number.isFinite(val)//construct a function totest if the input arg is a number
+			}
+			var a=arguments[0];
+			var b=arguments[1];
+			if(arguments.length==1&&isNum(a)){
+				return function(val){
+					if(isNum(val)){
+						return a+val;
+					}
+				}
+			}
+			else if(arguments.length==2&&isNum(a)&&isNum(b)){
+				return a+b
+			}
+		}
+
+		console.log(add(2)(3));
+
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
