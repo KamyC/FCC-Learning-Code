@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Symmetric Difference</title>
+	<script type="text/javascript">
+		function sym(){
+			var arr=[];
+			for(var i=0;i<arguments.length;i++){
+				arr.push(arguments[i])
+			}
+			function compare(a,b){
+				var result=[];
+				a.forEach(function(val){
+					if(b.indexOf(val)<0&&result.indexOf(val)<0){
+						result.push(val);
+					}
+				});
+				b.forEach(function(val){
+					if(a.indexOf(val)<0&&result.indexOf(val)<0){
+						result.push(val);
+					}
+				});
+				return result;
+			}
+
+			return arr.reduce(compare);
+		}
+
+
+		console.log(sym([1, 2, 3], [5, 2, 1, 4]));
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
