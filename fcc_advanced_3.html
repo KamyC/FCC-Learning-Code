@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exact Change</title>
+	<script type="text/javascript">
+	function checkCashRegister(price, cash, cid) {
+	var resi=cash-price;//0.3  0.5    0.8
+	var sum=[];
+	var val=[0.01, 0.05, 0.10, 0.25, 1, 5, 10, 20, 100];
+	var addAll=0;
+	for(var i=0;i<cid.length;i++){
+		addAll+=cid[i][1];
+	}
+	//cid=[[1.01],[2.05],[3.01],[4.25],[90.00],[55.00],[20.00],[60.00].[100.00]]
+	if(addAll<resi){
+		return "Insufficient Funds";
+	}
+	else if(addAll==resi){
+		return"Closed";
+	}
+	for(var i=8;i>=0;i--){
+		if(i==0&&resi<=cid[0][1]){
+			sum.push([cid[0][0],Math.round(resi*1000)/1000]);
+			resi=0;
+		}
+		else if(resi>=cid[i][1]&&resi>=val[i]&&cid[i][1]>0){
+			sum.push(cid[i]);
+			resi=resi-cid[i][1];
+		}
+		else if(resi<=cid[i][1]&&resi>=val[i]&&cid[i][1]>0){
+			sum.push([cid[i][0],Math.floor(resi/val[i])*val[i]])
+			resi=resi-Math.floor(resi/val[i])*val[i]
+		}
+		
+		
+
+		if(resi==0){
+			break;
+		}
+	};
+	if(resi>0){
+		return "Insufficient Funds"
+	}
+	
+
+		return sum;
+	}
+	
+
+	console.log(checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]) )
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
