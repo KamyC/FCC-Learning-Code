@@ -4,14 +4,64 @@
 	<meta charset="UTF-8">
 	<title>Friendly Date Ranges</title>
 	<script type="text/javascript">
-		function makeFriendlyDates(str){
+		function makeFriendlyDates(arr){
+			var datePast=[]
+			var dateNow=[]
+			var show=[]
+			var month=['','January','February','March','April','May','June','July','August','September','October','November','December'];
+			var day=['',"1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th", "31st"];
 
+			arr[0].split('-').forEach(function(item){
+				datePast.push(parseInt(item));
+			})
+			arr[1].split('-').forEach(function(item){
+				dateNow.push(parseInt(item));
+			})
+			var _datePast=new Date(datePast[1]+'-'+datePast[2]+'-'+datePast[0]);
+			var _dateNow=new Date (dateNow[1]+'-'+dateNow[2]+'-'+dateNow[0]);
+			var residual=(_dateNow-_datePast)/1000/60/60/24;
+			if(residual==0){
+				show.push(month[dateNow[1]]+" "+day[dateNow[2]]+", "+dateNow[0])
+			}
 
-
-			return str.substr(0,3);
+			else if(0<residual<365&&datePast[0]==dateNow[0]){
+				if(datePast[1]==dateNow[1]){
+					show.push(month[datePast[1]]+" "+day[datePast[2]],day[dateNow[2]])
+				}
+				else{
+					show.push(month[datePast[1]]+" "+day[datePast[2]],month[dateNow[1]]+" "+day[dateNow[2]])
+				}			
+			}
+			else if(0<residual<365&&datePast[0]!=dateNow[0]){
+				if(dateNow[0]==2017){
+					show.push(month[datePast[1]]+" "+day[datePast[2]]+', '+datePast[0],month[dateNow[1]]+" "+day[dateNow[2]])
+				}
+				else if(datePast[0]==2017)
+				show.push(month[datePast[1]]+" "+day[datePast[2]],month[dateNow[1]]+" "+day[dateNow[2]])
+				else if(datePast[1]==dateNow[1]&&datePast[2]>dateNow[2]){
+					show.push(month[datePast[1]]+" "+day[datePast[2]]+', '+datePast[0],month[dateNow[1]]+" "+day[dateNow[2]])
+				}
+			}
+			if(residual>=365){
+				show.push(month[datePast[1]]+" "+day[datePast[2]]+', '+datePast[0],month[dateNow[1]]+" "+day[dateNow[2]]+', '+dateNow[0])
+			}
+			if(residual<0){
+				return undefined;
+			}
+			return show;
 		}
-		console.log(makeFriendlyDates('2017-01-02'))
-		// console.log(makeFriendlyDates(['2017-01-02', '2017-01-05']))
+		// console.log(_datePast)
+		console.log(makeFriendlyDates(["2017-01-02", "2017-01-05"]))//1
+		console.log(makeFriendlyDates(["2017-02-01", "2017-03-03"]))//2
+		console.log(makeFriendlyDates(["2016-05-11", "2017-04-04"]))//3
+		console.log(makeFriendlyDates(["2017-07-12", "2018-06-13"]))//4
+		console.log(makeFriendlyDates(["2003-08-15", "2009-09-21"]))//5
+		console.log(makeFriendlyDates(["2010-10-23", "2011-10-22"]))//6
+		console.log(makeFriendlyDates(["2008-10-31", "2009-10-31"]))//7
+		console.log(makeFriendlyDates(["2004-11-17", "2005-12-25"]))//8
+		console.log(makeFriendlyDates(["2001-12-20", "2001-12-20"]))//9
+		console.log(makeFriendlyDates(["2002-12-20", "2001-12-20"]))//10
+		
 	</script>
 </head>
 <body>
