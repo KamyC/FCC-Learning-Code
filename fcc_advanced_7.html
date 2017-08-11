@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Make A Person</title>
+	<script type="text/javascript">
+		var Person=function(name){
+			this.setFirstName=function(first){
+				name=name.split(' ');
+				name.splice(0,1,first)
+				name=name.join(' ');
+				return name
+			}
+			this.getFirstName=function(){
+				return name.split(' ')[0];
+			}
+			
+			this.setLastName=function(last){
+				name=name.split(' ');
+				name.splice(1,1,last)
+				name=name.join(' ');
+				return name
+			}
+			this.getLastName=function(){
+				return name.split(' ')[1]
+			}
+            
+			this.setFullName=function(full){
+				name=full;
+				return name;
+			}
+			this.getFullName=function(){
+				return name
+			}			
+		}
+
+	
+		var bob=new Person('Bob Ross');
+
+
+		bob.setFirstName("Haskell");
+	
+		console.log(bob.getFullName())
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
