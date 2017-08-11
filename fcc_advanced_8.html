@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Map the Debris</title>
+	<script type="text/javascript">
+	function orbitalPeriod(arr) {
+  		var GM = 398600.4418;
+  		var earthRadius = 6367.4447;
+  		
+  		function periodCal(avgAlt){
+  			var R_3=Math.pow(earthRadius+avgAlt,3)
+  			var T=2*Math.PI*Math.pow(R_3/GM,0.5)
+  			return T;
+  		}
+  		for(var i in arr){
+  		    var period=Math.round(periodCal(arr[i].avgAlt))
+  		    delete arr[i].avgAlt
+  			arr[i].orbitalPeriod=period;
+  		}
+  	
+  		return arr;
+  		
+	}		
+	console.log(orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
